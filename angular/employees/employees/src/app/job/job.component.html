@@ -1,0 +1,8 @@
+<label class="col-sm-3 col-md-2 control-label">Job : </label>
+<div class="col-sm-6 col-md-3">
+  <select class='form-control' name='jobs' [(ngModel)]="job_id" (change)="onChange($event.target.value)">
+        <option value='undefined' selected>Sélectionner un job</option>
+        <option *ngFor="let job of jobs" [value]="job.job_id">{{job.jobname}}</option>
+  </select>
+</div>
+

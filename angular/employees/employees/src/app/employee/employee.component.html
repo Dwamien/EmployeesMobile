@@ -1,0 +1,40 @@
+<div class="well">
+  <div class="text-center titre">
+    <h2>{{title}}</h2>
+  </div>
+  <form class="form-horizontal" role="form" name="employeeForm" (ngSubmit)="validateEmployee(employee.employee_id)" #f="ngForm"
+    novalidate>
+
+    <div class="form-group">
+      <label class="col-sm-3 col-md-2 control-label">Nom : </label>
+      <div class="col-sm-6  col-md-5">
+        <input type="text" name="name" [(ngModel)]="employee.name" class="form-control" placeholder="Employee's name" required autofocus>
+      </div>
+    </div>
+    <div class="form-group">
+      <app-job [job_id]="employee.job_id"  (onChoose)="jobSelected($event)" (error)="getError($event)"></app-job>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3  col-md-2 control-label">Date embauche : </label>
+      <div class="col-sm-6 col-md-2">
+        <input type="date" class="form-control" [(ngModel)]="employee.hiredate" required name="hiredate">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3  col-md-2 control-label">Salaire : </label>
+      <div class="col-sm-6 col-md-2">
+        <input type="currency" name="salary" [(ngModel)]="employee.salary" class="form-control" placeholder="Employee's salary" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <app-department [department_id]="employee.department_id" (onChoose)="departmentSelected($event)" (error)="getError($event)"></app-department>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <button type="submit" class="btn btn-default btn-primary" [disabled]="!f.form.valid || error">Valider</button> &nbsp;
+        <button type="button" (click)="cancel(employee.employee_id)" class="btn btn-default btn-primary">Annuler</button>
+      </div>
+    </div>
+    <app-error [error]="error"></app-error>
+  </form>
+</div>

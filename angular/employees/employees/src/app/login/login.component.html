@@ -1,0 +1,25 @@
+<div class="well col-sm-8 col-md-8">
+  <h2 align="center">{{title}}</h2>
+  <form class="form-signin form-horizontal" name="form" role="form" name="loginForm" (ngSubmit)="login()" novalidate>
+      <div class="form-group">
+          <label class="col-sm-3 col-md-3 control-label">Login : </label>
+          <div class="col-sm-3  col-md-3">
+              <input type="text" class="form-control" [(ngModel)]="user.email" name="userlogin"  required />
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-3 col-md-3 control-label">Mot de passe :</label>
+          <div class="col-sm-3  col-md-3">
+              <input type="password" class="form-control" [(ngModel)]="user.password" name="userpwd" required />
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+              <button type="submit" class="btn btn-primary">Login</button>
+      &nbsp;
+              <button type="reset" class="btn btn-default">Reset</button>
+          </div>
+      </div>
+      <app-error [error]="error"></app-error>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <h3 class="col-md-offset-2">{{title}}</h3>
+
+<form class="form-horizontal" role="form" name="empByJobForm">
+  <div class="form-group">
+      <app-job [job_id]="job_id"  (onChoose)="jobSelected($event)" (reload)="reload()" (error)="getError($event)"></app-job>
+  </div>
+  <app-error [error]="error"></app-error>
+</form>
+</div>

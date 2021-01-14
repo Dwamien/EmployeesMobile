@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th class="hidden-xs">Id</th>
+        <th>Nom</th>
+        <th>Département</th>
+        <th class="hidden-xs">Date embauche</th>
+        <th class="hidden-xs">Job</th>
+        <th class="hidden-xs">Salaire</th>
+        <th style="width: 50px; text-align: center;"><span class="glyphicon glyphicon-pencil" style="color:blue"></span></th>
+        <th style="width: 50px; text-align: center;"><span class="glyphicon glyphicon-remove" style="color:red"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td class="hidden-xs">{{ employee.employee_id}}</td>
+        <td>{{ employee.name}}</td>
+        <td>{{ employee.department.dname}}</td>
+        <td class="hidden-xs">{{ employee.hiredate |date: 'shortDate'}}</td>
+        <td class="hidden-xs">{{ employee.job.jobname}}</td>
+        <td class="hidden-xs">{{ employee.salary}}</td>
+        <td style="text-align: center;"><span class="glyphicon glyphicon-pencil" (click)="detail(employee.employee_id)" style="cursor: pointer; color:blue;" title="Modifier"></span></td>
+        <td style="text-align: center;"><span class="glyphicon glyphicon-remove" (click)="delete(employee.employee_id)" style="cursor: pointer; color:red;" title="Supprimer"></span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
